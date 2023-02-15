@@ -8,6 +8,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material.*
@@ -36,7 +38,7 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier.fillMaxSize()
 
             ) {
-                ButtonDemo()
+                LazyRowItemsDemo()
             }
 
         }
@@ -132,7 +134,16 @@ fun ButtonDemo() {
         )
     }
 
+
+
 }
 
-
+@Composable
+fun LazyRowItemsDemo() {
+    LazyRow {
+        items((1..100).toList()) {
+            Text(text = "Item $it")
+        }
+    }
+}
 
